@@ -9,10 +9,50 @@ const feesPaidControl = document.getElementById("feesPaid");
 const feesPendingControl = document.getElementById("feesPending");
 const contactControl = document.getElementById("contact");
 
+const defaultStudents = [
+    {
+        studentId: "std-001",
+        name: "Syed Haseeb",
+        address: "Udgir, Maharashtra",
+        batch: "B22 2026",
+        feesPaid: 25000,
+        feesPending: 5000,
+        contact: "8767403773"
+    },
+    {
+        studentId: "std-002",
+        name: "Rahul Sharma",
+        address: "Nagpur, Maharashtra",
+        batch: "B23 2026",
+        feesPaid: 20000,
+        feesPending: 10000,
+        contact: "9876543210"
+    },
+    {
+        studentId: "std-003",
+        name: "Ayesha Khan",
+        address: "Amravati, Maharashtra",
+        batch: "B21 2026",
+        feesPaid: 30000,
+        feesPending: 0,
+        contact: "9123456780"
+    }
+];
+
+const storedStudents = localStorage.getItem("studentArr");
+
+let stdsArr;
+
+if (storedStudents) {
+    stdsArr = JSON.parse(storedStudents);
+} else {
+    stdsArr = defaultStudents;
+    localStorage.setItem("studentArr", JSON.stringify(stdsArr));
+}
 
 
-let stdsArr = JSON.parse(localStorage.getItem("studentArr")) || [];
-console.log();
+// let stdsArr = JSON.parse(localStorage.getItem("studentArr")) || [];
+
 
 function createStudent(arr) {
   let res = ``;
