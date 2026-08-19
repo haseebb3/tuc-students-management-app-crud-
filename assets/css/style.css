@@ -1,0 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #ededed;
+}
+
+.card.stdform{
+      box-shadow:1px 3px 21px black;
+}
