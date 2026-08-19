@@ -23,31 +23,31 @@
           <div class="card-body">
             <h4 class="bg-primary text-center">Add student</h4>
             <form class="form-row" id="studentForm">
-              <div class="col-md-6 form-group">
-                <label for="name">Enter student name</label>
-                <input type="text" id="name" class="form-control">
+              <div class="col-md-6 col-12 form-group">
+                <label for="name">Enter student name <span class="text-danger">*</span></label>
+                <input required type="text" id="name" class="form-control">
               </div>
-              <div class="col-md-6 form-group">
+              <div class="col-md-6 col-12 form-group">
                 <label for="address">Enter address</label>
                 <input type="text" id="address" class="form-control">
               </div>
               <div class="col-md-3 form-group">
-                <label for="batch">Student batch with year</label>
-                <input type="text" id="batch" class="form-control">
+                <label  for="batch">Student batch<span class="text-danger">*</span></label>
+                <input required type="text" id="batch" class="form-control">
               </div>
               <div class="col-md-3 form-group">
-                <label for="feesPaid">Fees paid</label>
-                <input type="number" id="feesPaid" class="form-control">
+                <label for="feesPaid">Fees paid<span class="text-danger">*</span></label>
+                <input required type="number" id="feesPaid" class="form-control">
               </div>
               <div class="col-md-3 form-group">
                 <label for="feesPending">Fees pending</label>
                 <input type="number" id="feesPending" class="form-control">
               </div>
-              <div class="col-md-3">
-                <label for="contact">Contact number</label>
-                <input type="text" id="contact" class="form-control">
+              <div class="col-md-3 form-group">
+                <label for="contact">Contact number<span class="text-danger">*</span></label>
+                <input required type="text" id="contact" class="form-control">
               </div>
-              <div class="col-6 offset-3">
+              <div class="col-6 offset-3 form-group">
                 <button type="submit" id="addStudentBtn" class="btn btn-primary btn-sm btn-block mt-2">Add student</button>
                 <button type="button" id="updateStudentBtn" class="btn btn-primary btn-sm btn-block d-none mt-2">Update student</button>
               </div>
