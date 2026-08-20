@@ -10,33 +10,33 @@ const feesPendingControl = document.getElementById("feesPending");
 const contactControl = document.getElementById("contact");
 
 const defaultStudents = [
-    {
-        studentId: "std-001",
-        name: "Syed Haseeb",
-        address: "Udgir, Maharashtra",
-        batch: "B22 2026",
-        feesPaid: 25000,
-        feesPending: 5000,
-        contact: "8767403773"
-    },
-    {
-        studentId: "std-002",
-        name: "Rahul Sharma",
-        address: "Nagpur, Maharashtra",
-        batch: "B23 2026",
-        feesPaid: 20000,
-        feesPending: 10000,
-        contact: "9876543210"
-    },
-    {
-        studentId: "std-003",
-        name: "Ayesha Khan",
-        address: "Amravati, Maharashtra",
-        batch: "B21 2026",
-        feesPaid: 30000,
-        feesPending: 0,
-        contact: "9123456780"
-    }
+  {
+    studentId: "std-001",
+    name: "Syed Haseeb",
+    address: "Udgir, Maharashtra",
+    batch: "B22 2026",
+    feesPaid: 25000,
+    feesPending: 5000,
+    contact: "8767403773",
+  },
+  {
+    studentId: "std-002",
+    name: "Rahul Sharma",
+    address: "Nagpur, Maharashtra",
+    batch: "B23 2026",
+    feesPaid: 20000,
+    feesPending: 10000,
+    contact: "9876543210",
+  },
+  {
+    studentId: "std-003",
+    name: "Ayesha Khan",
+    address: "Amravati, Maharashtra",
+    batch: "B21 2026",
+    feesPaid: 30000,
+    feesPending: 0,
+    contact: "9123456780",
+  },
 ];
 
 const storedStudents = localStorage.getItem("studentArr");
@@ -44,15 +44,13 @@ const storedStudents = localStorage.getItem("studentArr");
 let stdsArr;
 
 if (storedStudents) {
-    stdsArr = JSON.parse(storedStudents);
+  stdsArr = JSON.parse(storedStudents);
 } else {
-    stdsArr = defaultStudents;
-    localStorage.setItem("studentArr", JSON.stringify(stdsArr));
+  stdsArr = defaultStudents;
+  localStorage.setItem("studentArr", JSON.stringify(stdsArr));
 }
 
-
 // let stdsArr = JSON.parse(localStorage.getItem("studentArr")) || [];
-
 
 function createStudent(arr) {
   let res = ``;
@@ -142,10 +140,10 @@ function onStudentUpdateHandler() {
     batch: batchControl.value,
     feesPaid: feesPaidControl.value,
     feesPending: feesPendingControl.value,
-    contact: contactControl.value
-  }
+    contact: contactControl.value,
+  };
 
-  let update_idx = stdsArr.findIndex(el => el.studentId === update_id);
+  let update_idx = stdsArr.findIndex((el) => el.studentId === update_id);
   stdsArr[update_idx] = updated_obj;
   localStorage.setItem("studentArr", JSON.stringify(stdsArr));
 
@@ -162,10 +160,10 @@ function onStudentUpdateHandler() {
   studentForm.reset();
 
   Swal.fire({
-    text : `Student ${updated_obj.name} updated successfully`,
-    icon : "success",
-    timer : 2000
-  })
+    text: `Student ${updated_obj.name} updated successfully`,
+    icon: "success",
+    timer: 2000,
+  });
 }
 
 function onStdDeleteHandler(ele) {
@@ -188,6 +186,11 @@ function onStdDeleteHandler(ele) {
       stdsArr.splice(getIndex, 1);
       localStorage.setItem("studentArr", JSON.stringify(stdsArr));
       document.getElementById(dlt_id).remove();
+
+      let tds = document.querySelectorAll("#studentTable tr td:first-child");
+      console.log(tds, typeof tds);
+      tds.forEach((el, idx) => (el.innerText = idx + 1));
+      
       Swal.fire({
         title: "Deleted!",
         text: `${dlt_obj.name} has been deleted.`,
