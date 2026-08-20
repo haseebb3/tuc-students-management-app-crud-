@@ -105,6 +105,10 @@ function onFormSubHandler(event) {
 
   studentTable.append(tr);
 
+      // let tds = document.querySelectorAll("#studentTable tr td:first-child");
+      // console.log(tds, typeof tds);
+      // tds.forEach((el, idx) => (el.innerText = idx + 1));
+
   Swal.fire({
     text: `New student ${newStd.name} added successfully.`,
     icon: "success",
@@ -190,7 +194,7 @@ function onStdDeleteHandler(ele) {
       let tds = document.querySelectorAll("#studentTable tr td:first-child");
       console.log(tds, typeof tds);
       tds.forEach((el, idx) => (el.innerText = idx + 1));
-      
+
       Swal.fire({
         title: "Deleted!",
         text: `${dlt_obj.name} has been deleted.`,
